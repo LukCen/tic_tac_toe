@@ -23,6 +23,7 @@ body {
 .row {
     display: flex;
     height: 33.333%;
+    margin: 5px;
 }
 
 canvas {
@@ -31,5 +32,10 @@ canvas {
     width: 33.333%;
     border: 1px solid whitesmoke;
     background-color: transparent;
+    margin: 5px;
+
+    &:hover {
+        background-color: #606060;
+    }
     
 }

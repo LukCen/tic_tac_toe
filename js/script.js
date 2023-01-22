@@ -3,6 +3,8 @@ let gameCell = document.querySelectorAll('canvas');
 let singleCell = document.querySelector('canvas');
 let cellHeight = singleCell.clientHeight;
 let cellWidth = singleCell.clientWidth;
+let currentlyPlaying = document.querySelector('h2')
+currentlyPlaying.innerHTML = "Now playing : X"
 let playing = 2;
 
 gameCell.forEach((c) => {
@@ -37,13 +39,15 @@ gameCell.forEach((e) => {
         }
         
         let play = () => {
-            
+            currentlyPlaying.innerHTML = ""
             if(playing % 2 === 0){
                 drawX()
                 playing += 1 
+                currentlyPlaying.innerHTML = 'Now playing : O'
             } else if (playing % 2 === 1) {
                 drawCircle()
                 playing += 1
+                currentlyPlaying.innerHTML = 'Now playing : X'
             }
         }
 
