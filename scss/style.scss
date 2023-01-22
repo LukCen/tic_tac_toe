@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    padding: 10px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    height: 800px;
+}
+.row {
+    display: flex;
+    height: 33.333%;
+}
+
+canvas {
+    display: flex;
+    height: 100%;
+    width: 33.333%;
+    border: 1px solid whitesmoke;
+    background-color: transparent;
+    
+}
