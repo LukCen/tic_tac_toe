@@ -3,27 +3,40 @@
 const cells = document.querySelectorAll('.gameCell');
 const container = document.querySelector('.buttonContainer')
 let playing = 2;
+let gameOver = false;
 
 cells.forEach((c)=> {
 
     c.addEventListener('click', () => {
-       
+        
         // dynamically create both X and O
         const drawCross = () => {
             let crossLeft = document.createElement('div');
             let crossRight = document.createElement('div');
+            let soundCrossLeft = new Audio('../assets/Cross_left.wav')
+            let soundCrossRight = new Audio('../assets/Cross_right.wav')
     
             crossLeft.classList.add("crossLeft");
-            crossRight.classList.add("crossRight");
+            setTimeout(() => {
+
+                crossRight.classList.add("crossRight");
+            }, 250)
     
-            c.appendChild(crossLeft)
-            c.appendChild(crossRight)
+            c.appendChild(crossLeft);
+            
+            soundCrossLeft.play();
+            c.appendChild(crossRight);
+            setTimeout(() => {soundCrossRight.play()}, 250)
+            
         }
 
         const drawCircle = () => {
-            let circle = document.createElement('div')
-            circle.classList.add('circle')
-            c.appendChild(circle)
+            let circle = document.createElement('div');
+            let soundCircle = new Audio('../assets/circle.mp3');
+            soundCircle.volume = 0.5
+            circle.classList.add('circle');
+            c.appendChild(circle);
+            soundCircle.play();
         }
 
         const play = () => {
@@ -32,21 +45,24 @@ cells.forEach((c)=> {
                 (playing % 2 === 0) ? drawCross() : drawCircle();
                 c.classList.remove('empty')
                 playing += 1;
-
-                console.log(playing)
             }
+            
+            if(playing === 11 && gameOver === false){
+                // ensures the button isn't generated every time a cell is clicked once no empty cells remain
+                gameOver = true;
 
-            if(playing === 11){
-                
                 // create the reset button, give it "button" type and add a styling class
                 let reset = document.createElement('button');
+                let buttonSound = new Audio('../assets/btnClick.mp3')
+                buttonSound.volume = 0.1
                 reset.type = 'button';
                 reset.classList.add('restart');
                 reset.innerHTML = 'Clear'
                 container.appendChild(reset)
-
+                
                 // resets the board upon clicking then deletes itself
                 reset.addEventListener('click', () => {
+                    buttonSound.play()
                     cells.forEach((c) => {
                         c.classList.add('empty')
                         c.innerHTML = ''
