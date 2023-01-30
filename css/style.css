@@ -43,12 +43,30 @@ body {
   position: absolute;
 }
 
+@keyframes crossLeftAnim {
+  from {
+    height: 0px;
+  }
+  to {
+    height: inherit;
+  }
+}
+@keyframes crossRightAnim {
+  from {
+    height: 0px;
+  }
+  to {
+    height: inherit;
+  }
+}
 .crossLeft, .crossHoverLeft {
   transform: rotate(45deg);
+  animation: crossLeftAnim 0.25s ease-in-out;
 }
 
 .crossRight, .crossHoverRight {
   transform: rotate(-45deg);
+  animation: crossRightAnim 0.25s ease-in-out;
 }
 
 .circle {
@@ -56,9 +74,27 @@ body {
   width: 120px;
   border-radius: 50%;
   position: absolute;
-  border: 10px solid aquamarine;
+  border: 10px solid whitesmoke;
+  animation: circleAnim 0.5s ease;
 }
 
+@keyframes circleAnim {
+  0% {
+    border: 0px whitesmoke;
+  }
+  25% {
+    border-top: 10px solid whitesmoke;
+  }
+  50% {
+    border-right: 10px solid whitesmoke;
+  }
+  75% {
+    border-bottom: 10px solid whitesmoke;
+  }
+  100% {
+    border-left: 10px solid whitesmoke;
+  }
+}
 .buttonContainer {
   display: flex;
   justify-content: center;

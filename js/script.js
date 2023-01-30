@@ -8,7 +8,7 @@ let gameOver = false;
 cells.forEach((c)=> {
 
     c.addEventListener('click', () => {
-        
+        console.log(cells[c])
         // dynamically create both X and O
         const drawCross = () => {
             let crossLeft = document.createElement('div');
@@ -21,7 +21,7 @@ cells.forEach((c)=> {
 
                 crossRight.classList.add("crossRight");
             }, 250)
-    
+            c.classList.add('hasCross')
             c.appendChild(crossLeft);
             
             soundCrossLeft.play();
@@ -35,6 +35,7 @@ cells.forEach((c)=> {
             let soundCircle = new Audio('../assets/circle.mp3');
             soundCircle.volume = 0.5
             circle.classList.add('circle');
+            c.classList.add('hasCircle')
             c.appendChild(circle);
             soundCircle.play();
         }
