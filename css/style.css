@@ -21,6 +21,17 @@ body {
   grid-gap: 5px;
 }
 
+.containerCover {
+  position: absolute;
+  display: grid;
+  height: 500px;
+  width: 500px;
+  z-index: 4;
+  justify-content: center;
+  align-self: center;
+  background-color: transparent;
+}
+
 .gameCell {
   display: flex;
   justify-content: center;

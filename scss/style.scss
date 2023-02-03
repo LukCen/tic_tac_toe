@@ -22,6 +22,19 @@ body {
     grid-gap: 5px;
 }
 
+// this covers the game screen and prevents you from clicking on cells once the game is won
+
+.containerCover {
+    position: absolute;
+    display: grid;
+    height: 500px;
+    width: 500px;
+    z-index: 4;
+    justify-content: center;
+    align-self: center;
+    background-color: transparent;
+}
+
 .gameCell {
     display: flex;
     justify-content: center;
@@ -44,6 +57,7 @@ body {
     background-color: aquamarine;
     border-radius: 50px;
     position: absolute;
+
    
 };
 
@@ -67,7 +81,8 @@ body {
 
 .crossLeft, .crossHoverLeft {
     transform: rotate(45deg);
-    animation: crossLeftAnim .25s ease-in-out
+    animation: crossLeftAnim .25s ease-in-out;
+   
 }
 
 .crossRight, .crossHoverRight {

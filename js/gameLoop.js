@@ -1,4 +1,6 @@
 'use strict'
+import * as winCon from './victoryConditions.js';
+
 
 const cells = document.querySelectorAll('.gameCell');
 const container = document.querySelector('.buttonContainer')
@@ -8,22 +10,21 @@ let gameOver = false;
 cells.forEach((c)=> {
 
     c.addEventListener('click', () => {
-        console.log(cells[c])
         // dynamically create both X and O
         const drawCross = () => {
             let crossLeft = document.createElement('div');
             let crossRight = document.createElement('div');
-            let soundCrossLeft = new Audio('../assets/Cross_left.wav')
-            let soundCrossRight = new Audio('../assets/Cross_right.wav')
+            let soundCrossLeft = new Audio('../assets/Cross_left.wav');
+            let soundCrossRight = new Audio('../assets/Cross_right.wav');
     
             crossLeft.classList.add("crossLeft");
             setTimeout(() => {
-
                 crossRight.classList.add("crossRight");
-            }, 250)
-            c.classList.add('hasCross')
+            }, 250);
+
+            c.classList.add('hasCross');
+            winCon.checkCross()
             c.appendChild(crossLeft);
-            
             soundCrossLeft.play();
             c.appendChild(crossRight);
             setTimeout(() => {soundCrossRight.play()}, 250)
@@ -36,6 +37,7 @@ cells.forEach((c)=> {
             soundCircle.volume = 0.5
             circle.classList.add('circle');
             c.classList.add('hasCircle')
+            winCon.checkCircle();
             c.appendChild(circle);
             soundCircle.play();
         }
