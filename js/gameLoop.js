@@ -14,8 +14,8 @@ cells.forEach((c)=> {
         const drawCross = () => {
             let crossLeft = document.createElement('div');
             let crossRight = document.createElement('div');
-            let soundCrossLeft = new Audio('../../assets/Cross_left.wav');
-            let soundCrossRight = new Audio('../../assets/Cross_right.wav');
+            let soundCrossLeft = new Audio('/assets/Cross_left.wav');
+            let soundCrossRight = new Audio('/assets/Cross_right.wav');
     
             crossLeft.classList.add("crossLeft");
             setTimeout(() => {
@@ -33,7 +33,7 @@ cells.forEach((c)=> {
 
         const drawCircle = () => {
             let circle = document.createElement('div');
-            let soundCircle = new Audio('../../assets/circle.mp3');
+            let soundCircle = new Audio('/assets/circle.mp3');
             soundCircle.volume = 0.5
             circle.classList.add('circle');
             c.classList.add('hasCircle')
@@ -56,7 +56,7 @@ cells.forEach((c)=> {
 
                 // create the reset button, give it "button" type and add a styling class
                 let reset = document.createElement('button');
-                let buttonSound = new Audio('../../assets/btnClick.mp3')
+                let buttonSound = new Audio('/assets/btnClick.mp3')
                 buttonSound.volume = 0.1
                 reset.type = 'button';
                 reset.classList.add('restart');
