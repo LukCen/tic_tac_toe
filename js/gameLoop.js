@@ -3,6 +3,7 @@ import * as winCon from './victoryConditions.js';
 
 
 const cells = document.querySelectorAll('.gameCell');
+let cellContainer = document.querySelector('.container')
 const container = document.querySelector('.buttonContainer')
 let playing = 2;
 let gameOver = false;
@@ -23,7 +24,7 @@ cells.forEach((c)=> {
             }, 250);
 
             c.classList.add('hasCross');
-            winCon.checkCross()
+
             c.appendChild(crossLeft);
             soundCrossLeft.play();
             c.appendChild(crossRight);
@@ -37,7 +38,7 @@ cells.forEach((c)=> {
             soundCircle.volume = 0.5
             circle.classList.add('circle');
             c.classList.add('hasCircle')
-            winCon.checkCircle();
+
             c.appendChild(circle);
             soundCircle.play();
         }
@@ -45,46 +46,54 @@ cells.forEach((c)=> {
         const play = () => {
             // draws a correct symbol in the clicked cell - always starts with X
             if(c.classList.contains('empty')){
+                winCon.checkCross();
+                winCon.checkCircle();
                 (playing % 2 === 0) ? drawCross() : drawCircle();
                 c.classList.remove('empty')
                 playing += 1;
             }
 
-            
 
             
-            if(playing === 11 && gameOver === false){
+            if(playing === 11 && gameOver === false || cellContainer.classList.contains('crossVictory')){
                 // ensures the button isn't generated every time a cell is clicked once no empty cells remain
                 gameOver = true;
 
                 // create the reset button, give it "button" type and add a styling class
-                let reset = document.createElement('button');
-                let buttonSound = new Audio('assets/btnClick.mp3')
-                buttonSound.volume = 0.1
-                reset.type = 'button';
-                reset.classList.add('restart');
-                reset.innerHTML = 'Clear'
-                container.appendChild(reset)
-                
-                // resets the board upon clicking then deletes itself
-                reset.addEventListener('click', () => {
-                    buttonSound.play()
-                    cells.forEach((c) => {
-                        c.classList.add('empty')
-                        c.innerHTML = ''
-                        playing = 2;
-                        c.style.backgroundColor = '';
-                        c.classList.remove('hasCross');
-                        c.classList.remove('hasCircle')
-                        
+                if(gameOver === true){
+                    let reset = document.createElement('button');
+                    let buttonSound = new Audio('assets/btnClick.mp3')
+                    buttonSound.volume = 0.1
+                    reset.type = 'button';
+                    reset.classList.add('restart');
+                    reset.innerHTML = 'Clear'
+                    container.appendChild(reset)
+                    
+                    // resets the board upon clicking then deletes itself
+                    reset.addEventListener('click', () => {
+                        buttonSound.play()
+                        cells.forEach((c) => {
+                            c.classList.add('empty')
+                            c.innerHTML = ''
+                            playing = 2;
+                            c.style.backgroundColor = '';
+                            c.classList.remove('hasCross');
+                            c.classList.remove('hasCircle');
+                            cellContainer.classList.remove('crossVictory');
+                            
+                            
+                        })
+                        container.removeChild(reset)
+                        gameOver = false;
                     })
-                    container.removeChild(reset)
-                })
-                //
+                    //
+
+                }
             }
             
         }
         play()
+        
     })
     
 })

@@ -29,18 +29,15 @@ export let checkCross = () => {
             // top row
 
             if(cell_1.classList.contains('hasCross') && cell_2.classList.contains('hasCross') && cell_3.classList.contains('hasCross')){
+                container.classList.add('crossVictory')
                 cell_1.style.backgroundColor = '#009900';
                 cell_2.style.backgroundColor = '#009900';
                 cell_3.style.backgroundColor = '#009900';
                 
                 
-                cell_1.classList.add('crossVictory')
-                cell_2.classList.add('crossVictory')
-                cell_3.classList.add('crossVictory')
-                container.classList.add('crossVictory')
-                
-                
-
+                // cell_1.classList.add('crossVictory')
+                // cell_2.classList.add('crossVictory')
+                // cell_3.classList.add('crossVictory')
             }
 
             // middle row 
