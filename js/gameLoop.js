@@ -49,6 +49,9 @@ cells.forEach((c)=> {
                 c.classList.remove('empty')
                 playing += 1;
             }
+
+            
+
             
             if(playing === 11 && gameOver === false){
                 // ensures the button isn't generated every time a cell is clicked once no empty cells remain
@@ -71,11 +74,15 @@ cells.forEach((c)=> {
                         c.innerHTML = ''
                         playing = 2;
                         c.style.backgroundColor = '';
+                        c.classList.remove('hasCross');
+                        c.classList.remove('hasCircle')
                         
                     })
                     container.removeChild(reset)
                 })
+                //
             }
+            
         }
         play()
     })

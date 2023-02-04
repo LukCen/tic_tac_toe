@@ -1,4 +1,6 @@
 'use strict'
+
+
 /* 
     there's probably a better way to do this, but I don't want to bother with jQuery or frameworks at this point, and I just want to finish this project, so it'll do with being "brute-forced" for now and I'll maybe revisit it later
 */
@@ -13,6 +15,7 @@ let cell_6 = document.querySelector('.container :nth-child(6)')
 let cell_7 = document.querySelector('.container :nth-child(7)')
 let cell_8 = document.querySelector('.container :nth-child(8)')
 let cell_9 = document.querySelector('.container :nth-child(9)')
+let container = document.querySelector('.container')
 
 // for X
 
@@ -34,7 +37,8 @@ export let checkCross = () => {
                 cell_1.classList.add('crossVictory')
                 cell_2.classList.add('crossVictory')
                 cell_3.classList.add('crossVictory')
-
+                container.classList.add('crossVictory')
+                
                 
 
             }
@@ -111,9 +115,9 @@ export let checkCross = () => {
                 cell_5.style.backgroundColor = '#009900';
                 cell_9.style.backgroundColor = '#009900';
 
-                cell_1.classList.add('.crossVictory')
-                cell_5.classList.add('.crossVictory')
-                cell_9.classList.add('.crossVictory')
+                cell_1.classList.add('crossVictory')
+                cell_5.classList.add('crossVictory')
+                cell_9.classList.add('crossVictory')
 
                 
             }
