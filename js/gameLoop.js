@@ -14,8 +14,8 @@ cells.forEach((c)=> {
         const drawCross = () => {
             let crossLeft = document.createElement('div');
             let crossRight = document.createElement('div');
-            let soundCrossLeft = new Audio('/assets/Cross_left.wav');
-            let soundCrossRight = new Audio('/assets/Cross_right.wav');
+            let soundCrossLeft = new Audio('/assets/crossLeft.wav');
+            let soundCrossRight = new Audio('/assets/crossRight.wav');
     
             crossLeft.classList.add("crossLeft");
             setTimeout(() => {
@@ -70,6 +70,7 @@ cells.forEach((c)=> {
                         c.classList.add('empty')
                         c.innerHTML = ''
                         playing = 2;
+                        c.style.backgroundColor = '';
                         
                     })
                     container.removeChild(reset)
