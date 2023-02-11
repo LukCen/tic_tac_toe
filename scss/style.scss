@@ -61,6 +61,10 @@ body {
    
 };
 
+.crossHoverLeft, .crossHoverRight, .circleHover {
+    opacity: 0.5;
+}
+
 @keyframes crossLeftAnim {
     from{
         height: 0px
@@ -79,13 +83,13 @@ body {
     }
 };
 
-.crossLeft, .crossHoverLeft {
+.crossLeft {
     transform: rotate(45deg);
     animation: crossLeftAnim .25s ease-in-out;
    
 }
 
-.crossRight, .crossHoverRight {
+.crossRight {
     transform: rotate(-45deg);
     animation: crossRightAnim .25s ease-in-out
 }
