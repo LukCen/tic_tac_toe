@@ -265,7 +265,7 @@ let checkCircle = () => {
 
             // right column
 
-            if(cell_3.classList.contains('hasCircle') && cell_6.classList.contains('hasCircle') && cell_9.classList.contains('hasCircle')){Circle
+            if(cell_3.classList.contains('hasCircle') && cell_6.classList.contains('hasCircle') && cell_9.classList.contains('hasCircle')){
                 cell_3.style.backgroundColor = '#009900';
                 cell_6.style.backgroundColor = '#009900';
                 cell_9.style.backgroundColor = '#009900';
