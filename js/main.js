@@ -343,7 +343,7 @@ cells.forEach((c)=> {
         }
 
         const gameEnd = () => {
-            if(playing === 11 && gameOver === false){
+            if(playing === 9 && gameOver === false){
                 // ensures the button isn't generated every time a cell is clicked once no empty cells remain
                 gameOver = true;
 

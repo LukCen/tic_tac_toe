@@ -54,6 +54,10 @@ body {
   position: absolute;
 }
 
+.crossHoverLeft, .crossHoverRight, .circleHover {
+  opacity: 0.5;
+}
+
 @keyframes crossLeftAnim {
   from {
     height: 0px;
@@ -70,12 +74,12 @@ body {
     height: inherit;
   }
 }
-.crossLeft, .crossHoverLeft {
+.crossLeft {
   transform: rotate(45deg);
   animation: crossLeftAnim 0.25s ease-in-out;
 }
 
-.crossRight, .crossHoverRight {
+.crossRight {
   transform: rotate(-45deg);
   animation: crossRightAnim 0.25s ease-in-out;
 }
@@ -123,6 +127,20 @@ body {
   font-size: 40px;
   border-radius: 5px;
   align-items: center;
+}
+
+.gameMenu {
+  position: absolute;
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+}
+
+.btnMenu {
+  width: 300px;
+  height: 150px;
+  background-color: beige;
+  padding: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */
