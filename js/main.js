@@ -358,7 +358,7 @@ cells.forEach((c)=> {
                     container.appendChild(reset);
                     
                     // resets the board upon clicking then deletes itself
-                    reset.addEventListener('click', () => {
+                    reset.addEventListener('click touchstart', () => {
                         buttonSound.play();
                         cells.forEach((c) => {
                             c.classList.add('empty')
@@ -376,6 +376,8 @@ cells.forEach((c)=> {
                         gameOver = false;
                     })
                     //
+
+                
 
                 }
             }
@@ -398,3 +400,5 @@ cells.forEach((c)=> {
         gameEnd()
     })
 })
+
+
